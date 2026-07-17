@@ -4,7 +4,6 @@
 use bevy::prelude::*;
 use crate::physics::blast::BlastState;
 use crate::physics::radiation::{RadiationZone, RadHazard};
-use crate::world::tunnel::section_start;
 
 pub struct HudPlugin;
 
@@ -130,7 +129,6 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 fn update_hud(
     state: Res<BlastState>,
-    zones: Query<&RadiationZone>,
     mut q_radius: Query<&mut Text, (With<HudShockRadius>, Without<HudBlastTimer>, Without<HudSectionTable>, Without<HudAlertMessage>)>,
     mut q_timer:  Query<&mut Text, (With<HudBlastTimer>,  Without<HudShockRadius>, Without<HudSectionTable>, Without<HudAlertMessage>)>,
     mut q_table:  Query<&mut Text, (With<HudSectionTable>, Without<HudShockRadius>, Without<HudBlastTimer>, Without<HudAlertMessage>)>,

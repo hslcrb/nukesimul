@@ -18,9 +18,7 @@ pub struct FireballParticle {
 #[derive(Component)]
 pub struct FireballCore;
 
-/// 버섯운 stem
-#[derive(Component)]
-pub struct MushroomStem;
+
 
 pub struct FireballPlugin;
 

@@ -2,7 +2,7 @@
 // 폭압파 전파 물리 시스템 (ECS)
 
 use bevy::prelude::*;
-use crate::world::tunnel::{BlastBarrier, section_start, SECTION_LENGTHS, TUNNEL_RADIUS};
+use crate::world::tunnel::{BlastBarrier, section_start, SECTION_LENGTHS};
 
 // ── 리소스 ────────────────────────────────────────────────────
 /// 시뮬레이션 전역 물리 상태

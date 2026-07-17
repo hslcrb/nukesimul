@@ -21,6 +21,7 @@ use world::tunnel::TunnelPlugin;
 
 // ── 앱 상태 ───────────────────────────────────────────────────
 #[derive(States, Default, Debug, Clone, PartialEq, Eq, Hash)]
+#[allow(dead_code)]
 enum AppState {
     #[default]
     Menu,
