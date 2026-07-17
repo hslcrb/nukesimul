@@ -32,8 +32,8 @@ fn spawn_shockwave(
         PbrBundle {
             mesh: meshes.add(Sphere::new(1.0)),
             material: materials.add(StandardMaterial {
-                base_color: Color::rgba(0.9, 0.7, 0.3, 0.15),
-                emissive: Color::rgb(1.5, 0.8, 0.1),
+                base_color: Color::srgba(0.9, 0.7, 0.3, 0.15),
+                emissive: Color::srgb(1.5, 0.8, 0.1).into(),
                 alpha_mode: AlphaMode::Blend,
                 cull_mode: None,
                 unlit: true,
@@ -53,8 +53,8 @@ fn spawn_shockwave(
                 major_radius: 1.0,
             }),
             material: materials.add(StandardMaterial {
-                base_color: Color::rgba(1.0, 0.9, 0.5, 0.25),
-                emissive: Color::rgb(2.0, 1.0, 0.0),
+                base_color: Color::srgba(1.0, 0.9, 0.5, 0.25),
+                emissive: Color::srgb(2.0, 1.0, 0.0).into(),
                 alpha_mode: AlphaMode::Blend,
                 unlit: true,
                 ..default()

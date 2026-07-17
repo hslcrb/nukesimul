@@ -32,10 +32,10 @@ impl RadHazard {
     }
     pub fn color(&self) -> Color {
         match self {
-            Self::Safe      => Color::GREEN,
-            Self::Elevated  => Color::YELLOW,
-            Self::Dangerous => Color::ORANGE_RED,
-            Self::Lethal    => Color::RED,
+            Self::Safe      => Color::srgb(0.0, 1.0, 0.0),
+            Self::Elevated  => Color::srgb(1.0, 1.0, 0.0),
+            Self::Dangerous => Color::srgb(1.0, 0.27, 0.0),
+            Self::Lethal    => Color::srgb(1.0, 0.0, 0.0),
         }
     }
     pub fn label(&self) -> &str {

@@ -55,10 +55,10 @@ fn main() {
         ))
         // ── 씬 공통 설정 ──
         .insert_resource(AmbientLight {
-            color: Color::rgb(0.15, 0.12, 0.1),
+            color: Color::srgb(0.15, 0.12, 0.1),
             brightness: 150.0,
         })
-        .insert_resource(ClearColor(Color::rgb(0.04, 0.04, 0.06)))
+        .insert_resource(ClearColor(Color::srgb(0.04, 0.04, 0.06)))
         // ── 인터랙션 시스템 ──
         .add_systems(Update, (handle_input, handle_reset))
         .run();

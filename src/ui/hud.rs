@@ -36,7 +36,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
             padding: UiRect::all(Val::Px(10.0)),
             ..default()
         },
-        background_color: Color::rgba(0.0, 0.0, 0.0, 0.70).into(),
+        background_color: Color::srgba(0.0, 0.0, 0.0, 0.70).into(),
         border_radius: BorderRadius::all(Val::Px(6.0)),
         ..default()
     }).with_children(|parent| {
@@ -46,7 +46,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
             TextStyle {
                 font: font.clone(),
                 font_size: 16.0,
-                color: Color::rgb(0.0, 1.0, 0.4),
+                color: Color::srgb(0.0, 1.0, 0.4),
             },
         ));
 
@@ -54,7 +54,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
         parent.spawn((
             TextBundle::from_section(
                 "충격파 반경: --- m",
-                TextStyle { font: font.clone(), font_size: 13.0, color: Color::ORANGE },
+                TextStyle { font: font.clone(), font_size: 13.0, color: Color::srgb(1.0, 0.5, 0.0) },
             ),
             HudShockRadius,
         ));
@@ -63,7 +63,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
         parent.spawn((
             TextBundle::from_section(
                 "경과: 0.0 s",
-                TextStyle { font: font.clone(), font_size: 13.0, color: Color::WHITE },
+                TextStyle { font: font.clone(), font_size: 13.0, color: Color::srgb(1.0, 1.0, 1.0) },
             ),
             HudBlastTimer,
         ));
@@ -72,7 +72,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
         parent.spawn((
             TextBundle::from_section(
                 "구간별 데이터 로딩 중...",
-                TextStyle { font: font.clone(), font_size: 11.0, color: Color::GRAY },
+                TextStyle { font: font.clone(), font_size: 11.0, color: Color::srgb(0.5, 0.5, 0.5) },
             ),
             HudSectionTable,
         ));
@@ -93,7 +93,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
         p.spawn((
             TextBundle::from_section(
                 "",
-                TextStyle { font: font.clone(), font_size: 22.0, color: Color::NONE },
+                TextStyle { font: font.clone(), font_size: 22.0, color: Color::srgba(0.0, 0.0, 0.0, 0.0) },
             ),
             HudAlertMessage,
         ));
@@ -109,7 +109,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
             padding: UiRect::all(Val::Px(8.0)),
             ..default()
         },
-        background_color: Color::rgba(0.0, 0.0, 0.0, 0.55).into(),
+        background_color: Color::srgba(0.0, 0.0, 0.0, 0.55).into(),
         border_radius: BorderRadius::all(Val::Px(6.0)),
         ..default()
     }).with_children(|p| {
@@ -122,7 +122,7 @@ fn setup_hud(mut commands: Commands, asset_server: Res<AssetServer>) {
         ] {
             p.spawn(TextBundle::from_section(
                 line,
-                TextStyle { font: font.clone(), font_size: 11.0, color: Color::SILVER },
+                TextStyle { font: font.clone(), font_size: 11.0, color: Color::srgb(0.75, 0.75, 0.75) },
             ));
         }
     });
@@ -167,7 +167,7 @@ fn update_hud(
         match hz {
             RadHazard::Safe => {
                 t.sections[0].value = "".to_string();
-                t.sections[0].style.color = Color::NONE;
+                t.sections[0].style.color = Color::srgba(0.0, 0.0, 0.0, 0.0);
             }
             other => {
                 t.sections[0].value = format!("⚠ 방사선 경보: {}", other.label());

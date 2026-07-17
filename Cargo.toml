@@ -9,13 +9,28 @@ name = "nukesimul"
 path = "src/main.rs"
 
 [dependencies]
-# Bevy 게임 엔진 (순수 Rust 3D)
-bevy = { version = "0.14", features = ["dynamic_linking"] }
+# Bevy 게임 엔진 - 오디오(bevy_audio/alsa) 비활성화
+bevy = { version = "0.14", default-features = false, features = [
+    "bevy_asset",
+    "bevy_core_pipeline",
+    "bevy_pbr",
+    "bevy_render",
+    "bevy_scene",
+    "bevy_text",
+    "bevy_ui",
+    "bevy_winit",
+    "bevy_gizmos",
+    "bevy_state",
+    "multi_threaded",
+    "png",
+    "x11",
+    "wayland",
+    "dynamic_linking",
+] }
 # 강체 물리 (Rapier3D)
 bevy_rapier3d = { version = "0.27", features = ["debug-render-3d"] }
-# 수학
+# 수학/유틸
 rand = "0.8"
-# 직렬화
 serde = { version = "1.0", features = ["derive"] }
 
 [profile.dev]

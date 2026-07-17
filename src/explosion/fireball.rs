@@ -53,8 +53,8 @@ fn spawn_fireball_on_detonate(
         PbrBundle {
             mesh: meshes.add(Sphere::new(1.0)),
             material: materials.add(StandardMaterial {
-                base_color: Color::rgb(1.0, 0.5, 0.0),
-                emissive: Color::rgb(8.0, 3.0, 0.0),
+                base_color: Color::srgb(1.0, 0.5, 0.0),
+                emissive: Color::srgb(8.0, 3.0, 0.0).into(),
                 unlit: true,
                 ..default()
             }),
@@ -67,7 +67,7 @@ fn spawn_fireball_on_detonate(
     // 폭발 点光源
     commands.spawn(PointLightBundle {
         point_light: PointLight {
-            color: Color::rgb(1.0, 0.7, 0.2),
+            color: Color::srgb(1.0, 0.7, 0.2),
             intensity: 5_000_000.0,
             range: 200.0,
             shadows_enabled: true,
@@ -97,8 +97,8 @@ fn spawn_fireball_on_detonate(
             PbrBundle {
                 mesh: meshes.add(Sphere::new(scale)),
                 material: materials.add(StandardMaterial {
-                    base_color: Color::rgb(r, g, 0.0),
-                    emissive: Color::rgb(r * 3.0, g, 0.0),
+                    base_color: Color::srgb(r, g, 0.0),
+                    emissive: Color::srgb(r * 3.0, g, 0.0).into(),
                     unlit: true,
                     ..default()
                 }),
@@ -131,7 +131,7 @@ fn spawn_fireball_on_detonate(
             PbrBundle {
                 mesh: meshes.add(Sphere::new(scale)),
                 material: materials.add(StandardMaterial {
-                    base_color: Color::rgba(grey, grey, grey, 0.6),
+                    base_color: Color::srgba(grey, grey, grey, 0.6),
                     alpha_mode: AlphaMode::Blend,
                     unlit: true,
                     ..default()

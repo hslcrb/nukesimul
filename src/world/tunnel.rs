@@ -74,7 +74,7 @@ fn spawn_tunnel_world(
     // ── 조명 ──
     commands.spawn(DirectionalLightBundle {
         directional_light: DirectionalLight {
-            color: Color::rgb(1.0, 0.95, 0.8),
+            color: Color::srgb(1.0, 0.95, 0.8),
             illuminance: 8000.0,
             shadows_enabled: true,
             ..default()
@@ -90,7 +90,7 @@ fn spawn_tunnel_world(
         let x = section_start(i * 2 + 1) + 15.0;
         commands.spawn(PointLightBundle {
             point_light: PointLight {
-                color: Color::rgb(0.8, 0.7, 0.5),
+                color: Color::srgb(0.8, 0.7, 0.5),
                 intensity: 50_000.0,
                 range: 40.0,
                 ..default()
@@ -102,37 +102,37 @@ fn spawn_tunnel_world(
 
     // ── 재질 ──
     let rock_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.45, 0.38, 0.30),
+        base_color: Color::srgb(0.45, 0.38, 0.30),
         perceptual_roughness: 0.9,
         metallic: 0.0,
         ..default()
     });
     let concrete_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.6, 0.58, 0.55),
+        base_color: Color::srgb(0.6, 0.58, 0.55),
         perceptual_roughness: 0.85,
         ..default()
     });
     let steel_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.4, 0.42, 0.45),
+        base_color: Color::srgb(0.4, 0.42, 0.45),
         perceptual_roughness: 0.3,
         metallic: 0.9,
         ..default()
     });
     let device_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.1, 0.8, 0.3),
-        emissive: Color::rgb(0.0, 2.0, 0.5),
+        base_color: Color::srgb(0.1, 0.8, 0.3),
+        emissive: Color::srgb(0.0, 2.0, 0.5).into(),
         perceptual_roughness: 0.2,
         metallic: 0.8,
         ..default()
     });
     let equipment_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.8, 0.75, 0.1),
+        base_color: Color::srgb(0.8, 0.75, 0.1),
         perceptual_roughness: 0.4,
         metallic: 0.6,
         ..default()
     });
     let tower_mat = materials.add(StandardMaterial {
-        base_color: Color::rgb(0.9, 0.9, 0.85),
+        base_color: Color::srgb(0.9, 0.9, 0.85),
         perceptual_roughness: 0.5,
         ..default()
     });
@@ -256,8 +256,8 @@ fn spawn_tunnel_world(
         commands.spawn(PbrBundle {
             mesh: meshes.add(Sphere::new(0.12)),
             material: materials.add(StandardMaterial {
-                base_color: Color::rgb(0.05, 0.05, 0.15),
-                emissive: Color::rgb(0.0, 0.0, 0.5),
+                base_color: Color::srgb(0.05, 0.05, 0.15),
+                emissive: Color::srgb(0.0, 0.0, 0.5).into(),
                 ..default()
             }),
             transform: Transform::from_xyz(x, -TUNNEL_RADIUS + 0.7, TUNNEL_RADIUS * 0.6 + 0.21),
@@ -281,9 +281,9 @@ fn spawn_tunnel_world(
     commands.spawn(PbrBundle {
         mesh: meshes.add(Cuboid::new(1.5, 1.0, 0.1)),
         material: materials.add(StandardMaterial {
-            base_color: Color::rgba(0.4, 0.6, 0.9, 0.5),
+            base_color: Color::srgba(0.4, 0.6, 0.9, 0.5),
             alpha_mode: AlphaMode::Blend,
-            emissive: Color::rgb(0.0, 0.3, 0.6),
+            emissive: Color::srgb(0.0, 0.3, 0.6).into(),
             ..default()
         }),
         transform: Transform::from_xyz(entrance_x, 10.5, -6.55),
@@ -295,7 +295,7 @@ fn spawn_tunnel_world(
         PbrBundle {
             mesh: meshes.add(Cuboid::new(total_length + 30.0, 30.0, 40.0)),
             material: materials.add(StandardMaterial {
-                base_color: Color::rgb(0.35, 0.28, 0.22),
+                base_color: Color::srgb(0.35, 0.28, 0.22),
                 perceptual_roughness: 1.0,
                 ..default()
             }),
